@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     padding: 25,
+    borderRadius: "30px",
   },
 }));
 

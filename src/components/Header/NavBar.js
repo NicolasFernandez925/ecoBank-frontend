@@ -6,7 +6,7 @@ import MyListItems from "../../components/Header/MyListItems";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../Header/Header";
 
-const drawerWidth = 210;
+const drawerWidth = 230;
 const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,

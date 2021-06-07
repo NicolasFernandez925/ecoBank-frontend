@@ -6,6 +6,7 @@ import Mycard from "../components/ui/Mycard";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,12 +28,21 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
-  imgFondo: {
-    backgroundImage: "url(../../fondo-home.jpg)",
-    backgroundSize: "cover",
-  },
+
   buttonCard: {
     padding: "15px",
+    background: "#fff",
+    borderRadius: "60px",
+  },
+
+  tittle: {
+    fontWeight: "bold",
+    color: "rgb(72 72 72)",
+    "@media (max-width: 780px)": {
+      fontSize: "3.5rem",
+      margin: "80px 0px",
+      textAlign: "center",
+    },
   },
 }));
 
@@ -40,7 +50,7 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.imgFondo}>
+    <>
       <Container>
         <Grid
           className={classes.root}
@@ -50,12 +60,16 @@ const Home = () => {
           alignItems="center"
           justify="center"
         >
-          <Grid item xs={10} md={6}>
+          <Grid item xs={12} md={7}>
+            <Typography variant="h1" color="initial" className={classes.tittle}>
+              Somos un banco en una app.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={5}>
             <Mycard title="Controla tus ingresos y egresos en EcoBank !">
               <Box mt={5} className={classes.btnContainer}>
                 <Button
                   variant="contained"
-                  color="secondary"
                   href={"/auth/signin"}
                   className={classes.buttonCard}
                 >
@@ -67,7 +81,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </>
   );
 };
 

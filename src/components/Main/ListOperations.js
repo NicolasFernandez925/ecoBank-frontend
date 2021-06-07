@@ -22,7 +22,7 @@ const ListOperations = () => {
     { title: "Motivo", field: "motivo" },
 
     {
-      title: "$ Monto",
+      title: "Monto",
       field: "monto",
     },
 
@@ -52,9 +52,8 @@ const ListOperations = () => {
     <>
       <Container maxWidth="lg">
         <Typography
-          style={{ padding: "50px 0px" }}
-          variant="h3"
-          color="initial"
+          style={{ padding: "50px 0px", color: "#484848" }}
+          variant="h4"
         >
           Operaciones
         </Typography>
@@ -69,7 +68,7 @@ const ListOperations = () => {
               backgroundColor: "#EEE",
             },
             headerStyle: {
-              backgroundColor: "rgb(69, 74, 105)",
+              backgroundColor: "rgb(32 193 175)",
               color: "#FFF",
             },
           }}
@@ -81,7 +80,7 @@ const ListOperations = () => {
               onClick: (event, rowData) => {
                 openEditModal(rowData);
               },
-              backgroundColor: "rgb(69, 74, 105)",
+              backgroundColor: "rgb(32 193 175)",
             },
             {
               icon: "delete",

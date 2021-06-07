@@ -5,8 +5,9 @@ import HomeIcon from "@material-ui/icons/Home";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AssessmentIcon from "@material-ui/icons/Assessment";
-
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+
+import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -58,10 +59,21 @@ const MyListItems = () => {
             <ListItemText primary="Home" />
           </ListItem>
         </Link>
-
         <Link
           style={{ textDecoration: "none", color: "black" }}
-          to={"props.link"}
+          to={"/account"}
+          onClick={() => dispatch(openMenu(false))}
+        >
+          <ListItem button>
+            <ListItemIcon>
+              <PermIdentityIcon />
+            </ListItemIcon>
+            <ListItemText primary="Perfil" />
+          </ListItem>
+        </Link>
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={"/dashboard"}
           onClick={agregarOperacion}
         >
           <ListItem button>

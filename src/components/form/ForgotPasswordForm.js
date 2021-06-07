@@ -40,13 +40,13 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   tittleDialog: {
-    color: "#884683",
     textAlign: "center",
     marginBottom: 3,
     fontWeight: 400,
   },
   subTittleDialog: {
     fontSize: "20px",
+    marginTop: "10px",
     textAlign: "center",
   },
 }));

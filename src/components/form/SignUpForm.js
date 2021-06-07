@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tittleDialog: {
     fontSize: "37px",
-    color: "#884683",
+
     textAlign: "center",
     marginBottom: 3,
   },
@@ -58,11 +58,7 @@ const SignUpForm = () => {
     <>
       {error === null && (
         <MyDialog>
-          <Typography
-            className={classes.tittleDialog}
-            variant="h4"
-            color="initial"
-          >
+          <Typography className={classes.tittleDialog} variant="h4">
             ¡Te hemos enviado un mail!
           </Typography>
           <DialogContent>

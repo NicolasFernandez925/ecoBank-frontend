@@ -31,12 +31,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
-  imgFondo: {
-    backgroundImage: "url(../../fondo-home.jpg)",
-    backgroundSize: "cover",
-  },
+
   buttonCard: {
     padding: "15px",
+    background: "#fff",
+    borderRadius: "60px",
   },
 }));
 
@@ -81,11 +80,11 @@ const Statistics = () => {
             <Grid item xs={12} md={12}>
               <Typography
                 variant="h3"
-                color="initial"
                 style={{
                   textAlign: "center",
                   marginBottom: "10px",
                   padding: "50px 0px",
+                  color: "#484848",
                 }}
               >
                 Gráfico de ingresos y Egresos
@@ -143,7 +142,6 @@ const Statistics = () => {
                 <Box mt={5} className={classes.btnContainer}>
                   <Button
                     variant="contained"
-                    color="secondary"
                     onClick={() => history.goBack()}
                     className={classes.buttonCard}
                   >

@@ -5,12 +5,13 @@ import AuthRouter from "../router/AuthRoute";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import ActivateAccount from "../pages/ActivateAccount";
-
 import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
 import { authenticate } from "../actions/authAction";
 import { useDispatch, useSelector } from "react-redux";
 import Statistics from "../components/Main/Statistics";
 import NavBar from "../components/Header/NavBar";
+import Account from "../components/Main/Account";
+import Footer from "../components/ui/Footer";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -21,41 +22,54 @@ const AppRouter = () => {
   }, [dispatch]);
 
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <PublicRoute
-          exact
-          path="/auth/authentication/confirmation/:token"
-          component={ActivateAccount}
-        />
+    <>
+      <Router>
+        <NavBar />
+        <Switch>
+          <PublicRoute
+            path="/auth/authentication/confirmation/:token"
+            component={ActivateAccount}
+          />
 
-        <PublicRoute
-          exact
-          path="/"
-          component={Home}
-          isAuthenticated={autenticado}
-        />
-        <PublicRoute
-          path="/auth"
-          component={AuthRouter}
-          isAuthenticated={autenticado}
-        />
-        <PrivateRoute
-          path="/dashboard"
-          isAuthenticated={autenticado}
-          confirmed={confirmed}
-          component={Dashboard}
-        />
-        <PrivateRoute
-          path="/statistics"
-          isAuthenticated={autenticado}
-          confirmed={confirmed}
-          component={Statistics}
-        />
-        <Redirect to="/auth/signin" />
-      </Switch>
-    </Router>
+          <PublicRoute
+            exact
+            path="/"
+            component={Home}
+            isAuthenticated={autenticado}
+          />
+
+          <PublicRoute
+            path="/auth"
+            component={AuthRouter}
+            isAuthenticated={autenticado}
+          />
+          <PrivateRoute
+            exact
+            path="/dashboard"
+            isAuthenticated={autenticado}
+            confirmed={confirmed}
+            component={Dashboard}
+          />
+          <PrivateRoute
+            exact
+            path="/statistics"
+            isAuthenticated={autenticado}
+            confirmed={confirmed}
+            component={Statistics}
+          />
+
+          <PrivateRoute
+            exact
+            path="/account"
+            component={Account}
+            isAuthenticated={autenticado}
+          />
+          <Redirect to="/auth/signin" />
+        </Switch>
+
+        {autenticado && <Footer />}
+      </Router>
+    </>
   );
 };
 

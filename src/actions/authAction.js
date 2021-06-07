@@ -137,6 +137,36 @@ export const logout = () => {
   };
 };
 
+export const editUser = (formData) => {
+  const axios = axiosHttp();
+  return async (dispatch) => {
+    try {
+      dispatch(startLoading());
+      const { data } = await axios.patch("api/usuario/updateUser", formData);
+      console.log(data);
+
+      dispatch({
+        type: types.USER_EDIT,
+        payload: data.user,
+      });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Se editó correctamente!",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      dispatch(finishLoading());
+    } catch (error) {
+      dispatch(finishLoading());
+      dispatch({
+        type: types.USER_EDIT_ERROR,
+        payload: error.response.data.msg,
+      });
+    }
+  };
+};
+
 export const authenticate = () => {
   return async (dispatch) => {
     let localToken = localStorage.getItem("token");

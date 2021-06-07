@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     padding: 10,
+    borderRadius: "30px",
   },
 
   containerSignIn: {

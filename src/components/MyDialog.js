@@ -8,8 +8,11 @@ import { openModal } from "../actions/uiAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "25px 10px",
     maxWidth: "500px",
+    padding: "35px 0px",
+    borderRadius: "15px",
+    backgroundColor: "#fff",
+    boxShadow: "7px 10px 41px -2px black",
   },
 }));
 

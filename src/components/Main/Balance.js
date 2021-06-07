@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { balance as balanceOperations } from "../../actions/operationAction";
 const useStyles = makeStyles((theme) => ({
   backgroundMain: {
-    background: "#534e7b",
+    background: "#6c5ee6",
     height: "auto",
     display: "flex",
     flexDirection: "column",
@@ -32,6 +32,7 @@ const Balance = () => {
   const { usuario } = useSelector((state) => state.auth);
 
   const { balanceTotalPesos } = balance;
+
   useEffect(() => {
     dispatch(balanceOperations());
   }, [operaciones, dispatch]);
@@ -41,6 +42,14 @@ const Balance = () => {
     <>
       <Grid item xs={12} className={classes.backgroundMain}>
         <Box mt={4}>
+          <Typography
+            variant="h5"
+            color="initial"
+            gutterBottom
+            align={"center"}
+          >
+            Saldo actual
+          </Typography>
           <Typography
             variant="h2"
             color="initial"

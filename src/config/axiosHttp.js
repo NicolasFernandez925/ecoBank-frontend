@@ -10,6 +10,7 @@ export const axiosHttp = () => {
       headers: {
         Authorization: `Bearer ${localToken}`,
         "Content-type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
   } else {
@@ -17,10 +18,9 @@ export const axiosHttp = () => {
       baseURL: url,
       headers: {
         "Content-type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
   }
-
-  const axiosInstance = axios.create(config);
-  return axiosInstance;
+  return axios.create(config);
 };

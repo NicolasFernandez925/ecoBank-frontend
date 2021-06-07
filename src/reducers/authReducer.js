@@ -23,7 +23,7 @@ export const authReducer = (state = initialState, action) => {
       };
     case types.LOGIN_GOOGLE_EXITOSO:
       localStorage.setItem("token", action.payload.token);
-
+      localStorage.setItem("imagen-google", action.payload.usuario.imagen);
       return {
         ...state,
         token: action.payload.token,
@@ -42,6 +42,22 @@ export const authReducer = (state = initialState, action) => {
         usuario: action.payload.usuario,
         error: null,
       };
+
+    case types.USER_EDIT: {
+      console.log(action.payload);
+      return {
+        ...state,
+        usuario: action.payload,
+        error: null,
+      };
+    }
+    case types.USER_EDIT_ERROR: {
+      console.log(action.payload);
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
 
     case types.REGISTRO_ERROR:
     case types.LOGIN_ERROR:
@@ -69,6 +85,7 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         autenticado: true,
         usuario: action.payload.usuario,
+        error: null,
       };
     case types.AUTH_ERROR:
       return {
@@ -76,22 +93,24 @@ export const authReducer = (state = initialState, action) => {
         autenticado: false,
       };
     case types.AUTH_CONFIRMED:
-      console.log(action.payload);
       return {
         ...state,
         confirmed: true,
         autenticado: false,
         usuario: action.payload.user,
+        error: null,
       };
     case types.AUTH_CONFIRMED_ERROR:
     case types.AUTH_LOGOUT:
       localStorage.removeItem("token");
+      localStorage.removeItem("imagen-google");
       return {
         ...state,
         token: null,
         confirmed: false,
         autenticado: false,
         usuario: null,
+        error: null,
       };
     default:
       return state;

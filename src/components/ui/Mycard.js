@@ -11,11 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardHome: {
-    padding: "35px 0px",
+    padding: "60px 0px",
     borderRadius: "40px",
-    backgroundColor: "#666",
+    marginBottom: "50px",
+    backgroundColor: "#6c5ee6",
     opacity: ".9",
     boxShadow: "7px 10px 41px -2px black",
+    letterSpacing: "3px",
   },
 
   tipographyColor: {
@@ -30,7 +32,7 @@ const Mycard = ({ title, children }) => {
     <Card className={classes.cardHome}>
       <CardContent>
         <Typography
-          variant="h4"
+          variant="h5"
           component="h1"
           align="center"
           className={classes.tipographyColor}

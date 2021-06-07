@@ -89,7 +89,7 @@ export const balance = () => {
 export const createOperation = (values) => {
   const axios = axiosHttp();
 
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
       dispatch(startLoading());
       const { data } = await axios.post(

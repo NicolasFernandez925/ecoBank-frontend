@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
+import PersonIcon from "@material-ui/icons/Person";
 import MenuIcon from "@material-ui/icons/Menu";
 import { openMenu } from "../../actions/uiAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -66,12 +67,17 @@ const Header = () => {
   const dispatch = useDispatch();
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ background: "#454a69" }}>
+      <AppBar position="static" style={{ background: "rgb(98 116 226)" }}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            variant="h6"
+            className={classes.title}
+            style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+          >
             {autenticado && (
               <MenuIcon onClick={() => dispatch(openMenu(true))} />
             )}
+            <p style={{ marginLeft: "20px" }}>EcoBank</p>
           </Typography>
           {!autenticado ? (
             <>
@@ -80,6 +86,7 @@ const Header = () => {
                 className={classes.tittleAuth}
                 color="inherit"
               >
+                <PersonIcon />
                 SignIn
               </Button>
               <Button
@@ -99,8 +106,14 @@ const Header = () => {
               }}
               variant="dot"
             >
-              <Avatar src={usuario.imagen}>
-                {usuario?.imagen ? usuario.imagen : usuario.nombre.substr(0, 2)}
+              <Avatar
+                src={
+                  localStorage.getItem("imagen-google")
+                    ? localStorage.getItem("imagen-google")
+                    : usuario.image
+                }
+              >
+                {!usuario.image && usuario.nombre.substr(0, 2)}
               </Avatar>
             </StyledBadge>
           )}

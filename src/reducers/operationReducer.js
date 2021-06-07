@@ -8,14 +8,31 @@ const initialState = {
 export const operationReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.OPERACIONES:
+      const operations = action.payload.map((operation) => {
+        const date = new Date(operation.createdAt);
+        operation.createdAt = date.toLocaleDateString();
+        const operationEdiFecha = Object.assign({}, operation, {
+          createdAt: date.toLocaleDateString(),
+        });
+
+        return operationEdiFecha;
+      });
+
       return {
         ...state,
-        operaciones: action.payload,
+        operaciones: operations,
       };
     case types.AGRREGAR_OPERACION:
+      let { operation } = action.payload;
+      let date = new Date(operation.createdAt);
+
+      const operationEditFecha = Object.assign({}, operation, {
+        createdAt: date.toLocaleDateString(),
+      });
+
       return {
         ...state,
-        operaciones: [action.payload.operation, ...state.operaciones],
+        operaciones: [operationEditFecha, ...state.operaciones],
       };
     case types.BALANCE:
       return {

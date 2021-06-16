@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Una app con la cual se controlan los ingresos y egresos diarios. Un grafico en donde muestra los ingresos y egresos totales, se pueden editar, eliminar y agregar ### operaciones. El usuario puede subir su imagen con drag and drop. Tiene un sistema de logueo con validación JWT y confirmación por email y autenticación con Google. Se utilizo ### React.js + redux + Hooks, Material UI, la validación de formularios con Formik. Los Web services con Node.js + Express y como gestor de base de datos Mysql con el ORM Sequelize.
+### Una app con la cual se controlan los ingresos y egresos diarios. Un grafico en donde muestra los ingresos y egresos totales, se pueden editar, eliminar y agregar ### operaciones. El usuario puede subir su imagen con drag and drop. Tiene un sistema de logueo con validación JWT y confirmación por email y autenticación con Google. Se utilizo ### `React.js` + redux + Hooks, Material UI, la validación de formularios con Formik. Los Web services con `Node.js` + Express y como gestor de base de datos Mysql con el ORM Sequelize.
 
 In the project directory, you can run:
 
